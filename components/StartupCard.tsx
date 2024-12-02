@@ -1,31 +1,29 @@
 import Link from "next/link";
-import { Card, CardDescription, CardHeader, CardTitle } from "./ui/card";
-import { ShareIcon, StarIcon } from "lucide-react";
+import { Startup } from "@/constants/startup";
+import { BotIcon, ShareIcon, StarIcon } from "lucide-react";
 
-const StartupCard = () => {
+const StartupCard = ({ startup }: { startup: Startup }) => {
   return (
-    <Link href="/startup">
-      <Card className="rounded-none shadow-none flex flex-col p-4 justify-between pb-2 border-none">
+    <Link href="/startup" className="cursor-pointer">
+      <div className="relative rounded-none shadow-none flex flex-col p-4 justify-between pb-2 border-none">
         <div className="flex gap-2 items-start justify-between">
           <div className="flex gap-2 items-start">
-            <div className="aspect-square size-20 bg-[#2600ff]" />
-            <CardHeader className="p-0">
-              <CardTitle className="font-bold">Startup Name</CardTitle>
-              <CardDescription className="text-black text-sm">
-                Startup Description
-              </CardDescription>
-            </CardHeader>
-          </div>
-          <div className="text-gray-400 text-sm">20 Bets</div>
-        </div>
-        <div className="text-gray-400 justify-between items-center mt-1 flex">
-          <p className="text-sm">$19K Vol.</p>
-          <div className="flex gap-4">
-            <StarIcon className="size-4" />
-            <ShareIcon className="size-4" />
+            <div className="aspect-square size-20 flex items-center justify-center">
+              <BotIcon className="size-12" />
+            </div>
+            <div className="p-0">
+              <h2 className="font-bold capitalize">{startup.name}</h2>
+              <p className="text-black text-sm">{startup.description}</p>
+            </div>
           </div>
         </div>
-      </Card>
+        <div className="absolute bottom-0 right-0 p-4 text-gray-400 justify-end items-center mt-1 flex">
+          <div className="flex gap-4 z-10">
+            <StarIcon className="size-4 hover:text-yellow-500" />
+            <ShareIcon className="size-4 hover:text-blue-500" />
+          </div>
+        </div>
+      </div>
     </Link>
   );
 };

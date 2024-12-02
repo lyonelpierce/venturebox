@@ -33,7 +33,7 @@ export default function RootLayout({
       >
         <div className="h-16 bg-white block md:hidden" />
         <Header />
-        {children}
+        <div>{children}</div>
         <Navbar />
       </body>
     </html>
