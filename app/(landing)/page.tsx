@@ -48,6 +48,8 @@ const getStartups = async () => {
 const LandingPage = async () => {
   const startups = await getStartups();
 
+  console.log(startups);
+
   const orderedStartups =
     startups?.sort((a: Startup, b: Startup) => {
       const dateA = new Date(a.published);
