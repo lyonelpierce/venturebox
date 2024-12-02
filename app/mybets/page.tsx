@@ -5,11 +5,17 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 const MyBetsPage = () => {
   return (
     <Tabs defaultValue="active">
-      <TabsList className="w-full bg-white border-b border-gray-300 h-12">
-        <TabsTrigger value="active" className="w-1/2 font-bold uppercase">
+      <TabsList className="w-full bg-white border-b border-gray-300 h-12 p-0">
+        <TabsTrigger
+          value="active"
+          className="w-1/2 font-bold uppercase h-full"
+        >
           Active
         </TabsTrigger>
-        <TabsTrigger value="history" className="w-1/2 font-bold uppercase">
+        <TabsTrigger
+          value="history"
+          className="w-1/2 font-bold uppercase h-full"
+        >
           History
         </TabsTrigger>
       </TabsList>
