@@ -27,9 +27,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <meta name="viewport" content="viewport-fit=cover" />
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased w-full h-screen bg-[#fff4ec]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased w-full bg-[#fff4ec] h-dvh`}
       >
+        <div className="h-16 bg-white block md:hidden" />
         <Header />
         {children}
         <Navbar />

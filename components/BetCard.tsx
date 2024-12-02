@@ -10,7 +10,7 @@ const BetCard = ({ active, status }: { active: boolean; status?: string }) => {
     <Card>
       <CardHeader className="flex flex-row gap-2 w-full">
         <div className="aspec-square size-20 bg-gray-900 aspect-square" />
-        <CardTitle className="flex gap-2">
+        <CardTitle className="flex gap-2 justify-between w-full">
           <p>Will neuron release a new product in Q1 2025?</p>
           {active && (
             <div className="flex flex-col">
