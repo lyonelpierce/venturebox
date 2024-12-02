@@ -7,10 +7,14 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 const getStartups = async () => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_ENV_URL}/api/startups`
+      `https://www.stadium.science/api/venture_vox/get_all_companies`
     );
 
+    console.log(response);
+
     const data = await response.json();
+
+    console.log(data);
 
     return data;
   } catch (error) {
@@ -21,12 +25,11 @@ const getStartups = async () => {
 const LandingPage = async () => {
   const startups = await getStartups();
 
-  const orderedStartups =
-    startups?.sort((a: Startup, b: Startup) => {
-      const dateA = new Date(a.published);
-      const dateB = new Date(b.published);
-      return dateB.getTime() - dateA.getTime(); // Orde by most recent first
-    }) || [];
+  const orderedStartups = startups?.sort((a: Startup, b: Startup) => {
+    const dateA = new Date(a.created_at);
+    const dateB = new Date(b.created_at);
+    return dateB.getTime() - dateA.getTime(); // Orde by most recent first
+  });
 
   return (
     <Tabs defaultValue="all">

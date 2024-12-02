@@ -1,14 +1,37 @@
 import BetCard from "@/components/BetCard";
+import { Startup } from "@/constants/startup";
 import { ShareIcon, StarIcon } from "lucide-react";
 
-export async function generateStaticParams() {
-  const startups = await fetch("").then((res) => res.json());
+type Params = Promise<{ id: string }>;
 
-  return startups.map((startup: any) => ({ id: startup.id })); // TODO: change startup type
+export async function generateStaticParams() {
+  try {
+    const startups = await fetch(
+      "https://www.stadium.science/api/venture_vox/get_all_companies"
+    ).then((res) => res.json());
+
+    return startups.map((startup: Startup) => ({ id: startup.id }));
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-const StartupsPage = async ({ params }: { params: { id: string } }) => {
+const getStartup = async (id: string) => {
+  console.log(id);
+
+  try {
+    const response = await fetch("");
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const StartupsPage = async ({ params }: { params: Params }) => {
   const { id } = await params;
+
+  const startupData = await getStartup(id);
+  console.log(startupData);
 
   return (
     <>

@@ -4,7 +4,7 @@ import { BotIcon, ShareIcon, StarIcon } from "lucide-react";
 
 const StartupCard = ({ startup }: { startup: Startup }) => {
   return (
-    <Link href={`/${startup.id}`} className="cursor-pointer">
+    <Link href={`/startup/${startup.id}`} className="cursor-pointer">
       <div className="relative rounded-none shadow-none flex flex-col p-4 justify-between pb-2 border-none">
         <div className="flex gap-2 items-start justify-between">
           <div className="flex gap-2 items-start">
@@ -12,8 +12,8 @@ const StartupCard = ({ startup }: { startup: Startup }) => {
               <BotIcon className="size-12" />
             </div>
             <div className="p-0">
-              <h2 className="font-bold capitalize">{startup.name}</h2>
-              <p className="text-black text-sm">{startup.description}</p>
+              <h2 className="font-bold capitalize">{startup.company_name}</h2>
+              <p className="text-black text-sm">{startup.company_tagline}</p>
             </div>
           </div>
         </div>

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+
 import Header from "@/components/Header";
 import Navbar from "@/components/Navbar";
+import { initialize } from "@capacitor-community/safe-area";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,6 +27,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  initialize();
+
   return (
     <html lang="en">
       <meta name="viewport" content="viewport-fit=cover" />
