@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Startup } from "@/constants/startup";
-import { BotIcon, ShareIcon, StarIcon } from "lucide-react";
+import { ShareIcon, StarIcon } from "lucide-react";
+import StartupAvatar from "./StartupAvatar";
 
 const StartupCard = ({ startup }: { startup: Startup }) => {
   return (
@@ -8,9 +9,7 @@ const StartupCard = ({ startup }: { startup: Startup }) => {
       <div className="relative rounded-none shadow-none flex flex-col p-4 justify-between pb-2 border-none">
         <div className="flex gap-2 items-start justify-between">
           <div className="flex gap-2 items-start">
-            <div className="aspect-square size-20 flex items-center justify-center">
-              <BotIcon className="size-12" />
-            </div>
+            <StartupAvatar />
             <div className="p-0">
               <h2 className="font-bold capitalize">{startup.company_name}</h2>
               <p className="text-black text-sm">{startup.company_tagline}</p>

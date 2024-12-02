@@ -10,11 +10,7 @@ const getStartups = async () => {
       `https://www.stadium.science/api/venture_vox/get_all_companies`
     );
 
-    console.log(response);
-
     const data = await response.json();
-
-    console.log(data);
 
     return data;
   } catch (error) {

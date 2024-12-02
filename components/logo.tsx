@@ -10,7 +10,7 @@ const Logo = () => {
     <Link href="/">
       <h2 className="capitalized text-2xl font-bold uppercase font-museo">
         {pathname === "/" && "Venture Vox"}
-        {pathname === "/startup" && "Start Up Name"}
+        {pathname.includes("/startup") && "Start Up"}
         {pathname === "/mybets" && "My Bets"}
       </h2>
     </Link>

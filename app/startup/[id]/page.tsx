@@ -1,4 +1,5 @@
 import BetCard from "@/components/BetCard";
+import StartupAvatar from "@/components/StartupAvatar";
 import { Startup } from "@/constants/startup";
 import { ShareIcon, StarIcon } from "lucide-react";
 
@@ -17,11 +18,13 @@ export async function generateStaticParams() {
 }
 
 const getStartup = async (id: string) => {
-  console.log(id);
-
   try {
-    const response = await fetch("");
-    console.log(response);
+    const response = await fetch(
+      `https://www.stadium.science/api/venture_vox/${id}`
+    );
+    const data = await response.json();
+
+    return data;
   } catch (error) {
     console.log(error);
   }
@@ -30,20 +33,20 @@ const getStartup = async (id: string) => {
 const StartupsPage = async ({ params }: { params: Params }) => {
   const { id } = await params;
 
-  const startupData = await getStartup(id);
-  console.log(startupData);
+  const startup = await getStartup(id);
 
   return (
     <>
       <div className="bg-white border-b border-gray-300 h-32 flex items-center p-8">
         <div className="flex gap-3 w-full">
-          <div className="aspec-square size-20 bg-gray-900 aspect-square" />
+          <StartupAvatar imageUrl={startup.company_image} />
           <div className="flex flex-col justify-between w-full">
             <div className="flex justify-between">
-              <h2 className="uppercase font-bold text-xl">Name</h2>
-              <p className="text-gray-400"># Bets</p>
+              <h2 className="uppercase font-bold text-xl">
+                {startup.company_name}
+              </h2>
             </div>
-            <p>Start up description</p>
+            <p>{startup.company_tagline}</p>
             <div className="flex gap-4 w-full justify-end text-gray-400">
               <StarIcon className="size-4" />
               <ShareIcon className="size-4" />

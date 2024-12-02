@@ -26,7 +26,7 @@ const Navbar = () => {
         <Link
           key={item.href}
           href={item.href}
-          className="flex flex-col items-center justify-center gap-1 uppercase text-xs"
+          className="flex flex-col items-center justify-center gap-1 uppercase text-xs font-semibold"
         >
           {item.icon}
           {item.label}
