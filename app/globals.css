@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap");
 
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -63,15 +62,19 @@ body {
   }
 }
 
+@font-face {
+  font-family: "MuseoModerno";
+  src: url("../public/fonts/MuseoModerno-VariableFont_wght.ttf");
+}
+.font-museo {
+  font-family: "MuseoModerno";
+}
+
 @layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
-  }
-
-  .museomodernoFont {
-    font-family: "MuseoModerno", sans-serif;
   }
 }

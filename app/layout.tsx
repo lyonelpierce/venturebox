@@ -16,7 +16,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Venture Box",
+  title: "Venture Vox",
   description: "Prediction market for startups",
 };
 

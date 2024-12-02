@@ -1,4 +1,5 @@
 import { HomeIcon, SearchIcon, User2Icon } from "lucide-react";
+import Link from "next/link";
 
 const menu = [
   {
@@ -22,13 +23,14 @@ const Navbar = () => {
   return (
     <div className="bg-white w-full fixed bottom-0 left-0 border-t border-gray-300 flex justify-evenly h-20 items-center">
       {menu.map((item) => (
-        <div
+        <Link
           key={item.href}
+          href={item.href}
           className="flex flex-col items-center justify-center gap-1 uppercase text-xs"
         >
           {item.icon}
           {item.label}
-        </div>
+        </Link>
       ))}
     </div>
   );
