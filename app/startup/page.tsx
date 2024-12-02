@@ -21,7 +21,7 @@ const StartupsPage = () => {
         </div>
       </div>
       <div className="m-4">
-        <BetCard />
+        <BetCard active />
       </div>
     </>
   );
