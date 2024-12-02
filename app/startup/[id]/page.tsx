@@ -1,4 +1,5 @@
 import BetCard from "@/components/BetCard";
+import CreateBetModal from "@/components/CreateBetModal";
 import StartupAvatar from "@/components/StartupAvatar";
 import { Button } from "@/components/ui/button";
 import { Startup } from "@/constants/startup";
@@ -48,6 +49,8 @@ const getBets = async (id: string) => {
       `https://www.stadium.science/api/venture_vox/${id}/get_bet`
     );
 
+    console.log(response);
+
     const data = await response.json();
 
     return data;
@@ -61,8 +64,6 @@ const StartupsPage = async ({ params }: { params: Params }) => {
 
   const startup = await getStartup(id);
   const bets = await getBets(id);
-
-  console.log(bets);
 
   return (
     <>
@@ -89,9 +90,11 @@ const StartupsPage = async ({ params }: { params: Params }) => {
         ) : (
           <div className="flex flex-col w-full justify-center items-center gap-2">
             <p>There are no bets yet on this startup</p>
-            <Button className="tracking-wide font-bold uppercase h-12 bg-green-400 text-lg text-[#3a9769]">
-              Create a Bet
-            </Button>
+            <CreateBetModal startupId={startup.id}>
+              <Button className="tracking-wide font-bold uppercase h-12 bg-green-400 text-lg text-[#3a9769]">
+                Create a Bet
+              </Button>
+            </CreateBetModal>
           </div>
         )}
       </div>

@@ -8,7 +8,7 @@ const StartupCard = ({ startup }: { startup: Startup }) => {
     <Link href={`/startup/${startup.id}`} className="cursor-pointer">
       <div className="relative rounded-none shadow-none flex flex-col p-4 justify-between pb-2 border-none">
         <div className="flex gap-2 items-start justify-between">
-          <div className="flex gap-2 items-start">
+          <div className="flex gap-3 items-start">
             <StartupAvatar />
             <div className="p-0">
               <h2 className="font-bold capitalize">{startup.company_name}</h2>
