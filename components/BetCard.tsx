@@ -4,8 +4,17 @@ import { Progress } from "./ui/progress";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { cn } from "@/lib/utils";
 import { Separator } from "./ui/separator";
+import { BetData } from "@/constants/startup";
 
-const BetCard = ({ active, status }: { active: boolean; status?: string }) => {
+const BetCard = ({
+  active,
+  status,
+  betData,
+}: {
+  active: boolean;
+  status?: string;
+  betData: BetData;
+}) => {
   return (
     <Card>
       <CardHeader className="flex flex-row gap-2 w-full">
@@ -13,7 +22,7 @@ const BetCard = ({ active, status }: { active: boolean; status?: string }) => {
           <CircleHelpIcon className="size-12" />
         </div>
         <CardTitle className="flex gap-2 justify-between w-full">
-          <p>Will neuron release a new product in Q1 2025?</p>
+          <p className="capitalize">{betData.protocol_title}</p>
           <div className="flex flex-col gap-2 items-end">
             {active && (
               <div className="flex flex-col">

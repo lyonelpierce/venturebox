@@ -8,7 +8,6 @@ import {
   CredenzaContent,
   CredenzaHeader,
   CredenzaTitle,
-  CredenzaTrigger,
 } from "@/components/ui/credenza";
 import { Button } from "./ui/button";
 import {
@@ -24,6 +23,7 @@ import { useForm } from "react-hook-form";
 import { Textarea } from "./ui/textarea";
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   question: z
@@ -36,14 +36,15 @@ const formSchema = z.object({
     }),
 });
 
-const CreateBetModal = ({
-  children,
-  startupId,
-}: {
-  children: React.ReactNode;
-  startupId: string;
-}) => {
+const CreateBetModal = ({ startupId }: { startupId: string }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [open, setOpen] = useState<boolean>(false);
+
+  const router = useRouter();
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -84,7 +85,11 @@ const CreateBetModal = ({
         }
       );
       const data = await response.json();
-      console.log(data);
+
+      if (data) {
+        setOpen(false);
+        router.refresh();
+      }
     } catch (error) {
       console.log(error);
     } finally {
@@ -93,60 +98,67 @@ const CreateBetModal = ({
   }
 
   return (
-    <Credenza>
-      <CredenzaTrigger asChild>{children}</CredenzaTrigger>
-      <CredenzaContent className="pb-8">
-        <CredenzaHeader>
-          <CredenzaTitle>Create a Bet</CredenzaTitle>
-        </CredenzaHeader>
-        <CredenzaBody>
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)}>
-              <FormField
-                control={form.control}
-                name="question"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Question</FormLabel>
-                    <FormControl>
-                      <Textarea
-                        placeholder="Your question"
-                        className="resize-none"
-                        {...field}
-                        disabled={isLoading}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <div className="flex gap-3 mt-2">
-                <Button
-                  type="submit"
-                  disabled={isLoading}
-                  className="w-2/3 bg-green-400 text-[#1e583b] font-bold"
-                >
-                  {isLoading ? (
-                    <Loader2 className="animate-spin" />
-                  ) : (
-                    "Create Bet"
+    <>
+      <Button
+        onClick={handleOpen}
+        className="px-5 text-xs tracking-wide font-bold uppercase bg-green-400 rounded-full text-[#3a9769]"
+      >
+        Create a Bet
+      </Button>
+      <Credenza open={open} onOpenChange={setOpen}>
+        <CredenzaContent className="pb-8">
+          <CredenzaHeader>
+            <CredenzaTitle>Create a Bet</CredenzaTitle>
+          </CredenzaHeader>
+          <CredenzaBody>
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)}>
+                <FormField
+                  control={form.control}
+                  name="question"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Question</FormLabel>
+                      <FormControl>
+                        <Textarea
+                          placeholder="Your question"
+                          className="resize-none"
+                          {...field}
+                          disabled={isLoading}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
                   )}
-                </Button>
-                <CredenzaClose asChild>
+                />
+                <div className="flex gap-3 mt-2">
                   <Button
-                    type="button"
+                    type="submit"
                     disabled={isLoading}
-                    className="w-1/3 bg-muted text-black font-medium"
+                    className="w-2/3 bg-green-400 text-[#1e583b] font-bold"
                   >
-                    Cancel
+                    {isLoading ? (
+                      <Loader2 className="animate-spin" />
+                    ) : (
+                      "Create Bet"
+                    )}
                   </Button>
-                </CredenzaClose>
-              </div>
-            </form>
-          </Form>
-        </CredenzaBody>
-      </CredenzaContent>
-    </Credenza>
+                  <CredenzaClose asChild>
+                    <Button
+                      type="button"
+                      disabled={isLoading}
+                      className="w-1/3 bg-muted text-black font-medium"
+                    >
+                      Cancel
+                    </Button>
+                  </CredenzaClose>
+                </div>
+              </form>
+            </Form>
+          </CredenzaBody>
+        </CredenzaContent>
+      </Credenza>
+    </>
   );
 };
 

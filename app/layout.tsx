@@ -36,11 +36,11 @@ export default function RootLayout({
     <html lang="en">
       <meta name="viewport" content="viewport-fit=cover" />
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased w-full bg-[#fff4ec] h-dvh`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased w-full bg-[#fff4ec] h-dvh relative`}
       >
         <div className="h-16 bg-white block md:hidden" />
         <Header />
-        <div>{children}</div>
+        <div className="h-[calc(75%-5rem)]">{children}</div>
         <Navbar />
       </body>
     </html>
