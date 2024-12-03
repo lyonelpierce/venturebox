@@ -13,6 +13,7 @@ const Logo = () => {
         {pathname.includes("/startup") && "Start Up"}
         {pathname === "/mybets" && "My Bets"}
         {pathname === "/add-funds" && "Add Funds"}
+        {pathname === "/withdrawal" && "Withdrawal"}
       </h2>
     </Link>
   );
