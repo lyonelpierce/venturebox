@@ -1,7 +1,7 @@
 import BetCard from "@/components/BetCard";
 import CreateBetModal from "@/components/CreateBetModal";
 import StartupAvatar from "@/components/StartupAvatar";
-import { Bet, BetData, Startup } from "@/constants/startup";
+import { Bet, BetData } from "@/constants/startup";
 import { ShareIcon, StarIcon } from "lucide-react";
 
 type Params = Promise<{ id: string }>;
@@ -94,16 +94,18 @@ const StartupsPage = async ({ params }: { params: Params }) => {
           </div>
         </div>
       </div>
-      <div className="m-4 h-full flex flex-col gap-4 pt-44">
-        {orderedBets && orderedBets.length > 0 ? (
-          orderedBets.map((bet: BetData) => (
-            <BetCard active key={bet.protocol_id} betData={bet} />
-          ))
-        ) : (
-          <div className="flex flex-col h-full grow w-full justify-center items-center gap-2">
-            <p>There are no bets yet on this startup</p>
-          </div>
-        )}
+      <div className="h-full">
+        <div className="m-4 flex flex-col gap-4 pt-44 pb-24">
+          {orderedBets && orderedBets.length > 0 ? (
+            orderedBets.map((bet: BetData) => (
+              <BetCard active key={bet.protocol_id} betData={bet} />
+            ))
+          ) : (
+            <div className="flex flex-col h-full grow w-full justify-center items-center gap-2">
+              <p>There are no bets yet on this startup</p>
+            </div>
+          )}
+        </div>
       </div>
     </>
   );
