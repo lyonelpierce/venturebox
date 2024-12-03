@@ -25,7 +25,7 @@ const BetCard = ({
         <CardTitle className="flex gap-2 justify-between w-full">
           <p>{betData.protocol_title}</p>
           <div className="flex flex-col gap-2 items-end">
-            {active && (
+            {/* {active && (
               <div className="flex flex-col">
                 <p className="text-xs uppercase">50%</p>
                 <Progress value={50} />
@@ -33,7 +33,7 @@ const BetCard = ({
                   Chance
                 </p>
               </div>
-            )}
+            )} */}
             <StarIcon className="size-4 text-gray-400" />
           </div>
         </CardTitle>

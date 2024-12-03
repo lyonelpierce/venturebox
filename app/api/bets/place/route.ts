@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
         body: JSON.stringify({
           protocolId: betId,
           outcome,
-          amount: 100,
+          amount: 0.1,
         }),
       }
     );
