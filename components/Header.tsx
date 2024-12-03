@@ -1,6 +1,6 @@
 import Logo from "./logo";
 import { MenuIcon } from "lucide-react";
-import SheetMenu from "./SheetMenu";
+import SettingsMenu from "./SettingsMenu";
 
 const Header = () => {
   return (
@@ -8,7 +8,7 @@ const Header = () => {
       <div className="flex w-full justify-between items-center px-4 h-full">
         <MenuIcon className="cursor-pointer" />
         <Logo />
-        <SheetMenu />
+        <SettingsMenu />
       </div>
     </div>
   );

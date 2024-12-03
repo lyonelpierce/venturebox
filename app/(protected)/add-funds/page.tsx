@@ -4,7 +4,7 @@ import { Separator } from "@/components/ui/separator";
 const AddFundsPage = () => {
   return (
     <div className="flex flex-col grow w-full h-full pb-20">
-      <div className="flex flex-col gap-2 pt-20 h-full p-4">
+      <div className="flex flex-col gap-2 pt-20 h-min p-4">
         <div className="bg-gradient-to-t from-[#0011FFBF] to-[#606FF6BF] w-full h-14 rounded-md py-3 px-4 flex flex-col justify-center">
           <p className="text-white text-xs font-medium uppercase">
             Total balance
