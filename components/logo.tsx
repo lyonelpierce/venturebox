@@ -12,6 +12,7 @@ const Logo = () => {
         {pathname === "/" && "Venture Vox"}
         {pathname.includes("/startup") && "Start Up"}
         {pathname === "/mybets" && "My Bets"}
+        {pathname === "/add-funds" && "Add Funds"}
       </h2>
     </Link>
   );
