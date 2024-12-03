@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 
-const SignInPage = () => {
+const LandingPage = () => {
   return (
     <>
       <div className="flex flex-col items-center justify-center h-full gap-2 p-4 py-24">
@@ -38,4 +38,4 @@ const SignInPage = () => {
   );
 };
 
-export default SignInPage;
+export default LandingPage;
