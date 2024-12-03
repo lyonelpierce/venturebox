@@ -38,9 +38,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased w-full bg-[#fff4ec] h-dvh relative`}
       >
-        <div className="h-16 bg-white block md:hidden" />
+        {/* <div className="h-14 bg-white block md:hidden" /> */}
         <Header />
-        <div className="h-[calc(75%-5rem)]">{children}</div>
+        {children}
         <Navbar />
       </body>
     </html>

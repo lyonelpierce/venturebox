@@ -40,7 +40,7 @@ const LandingPage = async () => {
           Followed
         </TabsTrigger>
       </TabsList>
-      <TabsContent value="all" className="pt-8 pb-20">
+      <TabsContent value="all" className="pt-24 pb-20">
         <Card className="mx-4 my-2 overflow-hidden">
           <CardContent className="flex flex-col p-0 divide-y divide-gray-300">
             {orderedStartups?.map((startup: Startup) => (
