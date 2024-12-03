@@ -22,7 +22,7 @@ const BetCard = ({
           <CircleHelpIcon className="size-12" />
         </div>
         <CardTitle className="flex gap-2 justify-between w-full">
-          <p className="capitalize">{betData.protocol_title}</p>
+          <p>{betData.protocol_title}</p>
           <div className="flex flex-col gap-2 items-end">
             {active && (
               <div className="flex flex-col">

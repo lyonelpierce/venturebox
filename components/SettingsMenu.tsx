@@ -12,6 +12,7 @@ import { SettingsIcon } from "lucide-react";
 import Link from "next/link";
 import { Separator } from "./ui/separator";
 import { useState } from "react";
+import { useAuth } from "@/hooks/useAuth";
 
 const settingsMenuItems = [
   {
@@ -31,7 +32,7 @@ const settingsMenuItems = [
   },
   {
     label: "Log Out",
-    href: "/log-out",
+    href: "#",
     key: "log-out",
   },
 ];
@@ -42,6 +43,8 @@ const SheetMenu = () => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const { logout } = useAuth();
 
   return (
     <>
@@ -65,13 +68,25 @@ const SheetMenu = () => {
           <div className="flex flex-col justify-center w-full gap-3 divide-gray-300 mt-4">
             {settingsMenuItems.map((item) => (
               <div key={item.key}>
-                <Link
-                  href={item.href}
-                  className="px-4 uppercase font-semibold text-[#382ff7] flex h-full"
-                  onClick={handleClose}
-                >
-                  {item.label}
-                </Link>
+                {item.key === "log-out" ? (
+                  <button
+                    onClick={() => {
+                      handleClose();
+                      logout();
+                    }}
+                    className="px-4 uppercase font-semibold text-[#382ff7] flex h-full text-left w-full"
+                  >
+                    {item.label}
+                  </button>
+                ) : (
+                  <Link
+                    href={item.href!}
+                    className="px-4 uppercase font-semibold text-[#382ff7] flex h-full"
+                    onClick={handleClose}
+                  >
+                    {item.label}
+                  </Link>
+                )}
                 <Separator />
               </div>
             ))}

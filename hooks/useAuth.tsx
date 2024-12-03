@@ -30,7 +30,7 @@ export function useAuth() {
     const response = await fetch("/api/auth/logout", { method: "POST" });
     if (response.ok) {
       setIsAuthenticated(false);
-      router.push("/sign-in");
+      router.push("/");
     }
   };
 
