@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { BetData } from "@/constants/startup";
 import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
+// import { Progress } from "@/components/ui/progress";
 import { Separator } from "@/components/ui/separator";
 import { CircleHelpIcon, StarIcon } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
