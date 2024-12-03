@@ -74,7 +74,7 @@ const StartupsPage = async ({ params }: { params: Params }) => {
 
   return (
     <>
-      <div className="fixed z-20 top-0 left-0 mt-14 bg-white border-b border-gray-300 h-32 flex items-center p-8">
+      <div className="fixed z-20 top-0 left-0 mt-14 bg-white border-b border-gray-300 h-32 flex items-center p-8 w-full">
         <div className="flex gap-3 w-full">
           <StartupAvatar imageUrl={startup.company_image} />
           <div className="flex flex-col justify-between w-full">
@@ -94,8 +94,8 @@ const StartupsPage = async ({ params }: { params: Params }) => {
           </div>
         </div>
       </div>
-      <div className="h-full">
-        <div className="m-4 flex flex-col gap-4 pt-44 pb-24">
+      <div className="flex grow h-full w-full">
+        <div className="m-4 flex flex-col gap-4 pt-44 pb-24 w-full">
           {orderedBets && orderedBets.length > 0 ? (
             orderedBets.map((bet: BetData) => (
               <BetCard active key={bet.protocol_id} betData={bet} />

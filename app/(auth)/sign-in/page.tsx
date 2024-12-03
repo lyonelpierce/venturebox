@@ -1,41 +1,37 @@
-import { Button } from "@/components/ui/button";
+"use client";
 
-const SignInPage = () => {
+import { useState } from "react";
+
+export default function LoginWithSVN() {
+  const clientId = process.env.NEXT_PUBLIC_SVN_CLIENT_ID!;
+  const redirectUri = process.env.NEXT_PUBLIC_SVN_REDIRECT_URI!;
+
+  // eslint-disable-next-line
+  const [error, setError] = useState("");
+
+  if (!clientId || !redirectUri) {
+    setError("Missing clientId or redirectUri configuration.");
+    return;
+  }
+
+  const handleLogin = () => {
+    const state = Math.random().toString(36).substring(7);
+
+    window.location.href = `https://www.svn.haus/api/auth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(
+      redirectUri
+    )}&state=${state}`;
+  };
+
   return (
-    <>
-      <div className="flex flex-col items-center justify-center h-full gap-2 p-4 py-24">
-        <div className="flex flex-col items-center justify-center h-full gap-2">
-          <h2 className="capitalized text-5xl text-[#2600FF] font-bold uppercase font-museo">
-            Venture Vox
-          </h2>
-          <p className="text-[#2600FF] text-xl">
-            Prediction Markets for Start Ups
-          </p>
-        </div>
-        <Button className="rounded-lg h-11 uppercase font-semibold bg-[#2600FF] text-lg w-full">
-          Sign Up
-        </Button>
-        <Button
-          className="rounded-lg h-11 uppercase font-semibold text-lg w-full border-[#2600FF] bg-transparent text-[#2600ff]"
-          variant="outline"
-        >
-          Login
-        </Button>
-        <Button
-          className="rounded-lg h-11 uppercase font-semibold text-lg w-full border-[#2600FF] bg-transparent text-[#2600ff]"
-          variant="outline"
-        >
-          Login with Gmail
-        </Button>
-        <Button
-          className="rounded-lg h-11 uppercase font-semibold text-lg w-full border-[#2600FF] bg-transparent text-[#2600ff]"
-          variant="outline"
-        >
-          Login with Apple
-        </Button>
-      </div>
-    </>
+    <div className="max-w-md mx-auto p-4 pt-20">
+      <h1 className="text-2xl font-bold mb-4">Login with SVN</h1>
+      <button
+        onClick={handleLogin}
+        className="w-full p-2 bg-blue-500 text-white rounded"
+      >
+        Login
+      </button>
+      {error && <p className="text-red-500 mt-2">{error}</p>}
+    </div>
   );
-};
-
-export default SignInPage;
+}

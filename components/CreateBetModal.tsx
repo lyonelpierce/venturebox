@@ -24,6 +24,7 @@ import { Textarea } from "./ui/textarea";
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/hooks/useAuth";
 
 const formSchema = z.object({
   question: z
@@ -39,6 +40,8 @@ const formSchema = z.object({
 const CreateBetModal = ({ startupId }: { startupId: string }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
+
+  const { isAuthenticated } = useAuth();
 
   const router = useRouter();
 
@@ -56,12 +59,18 @@ const CreateBetModal = ({ startupId }: { startupId: string }) => {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       setIsLoading(true);
+      const accessToken = document.cookie
+        .split("; ")
+        .find((row) => row.startsWith("access_token="))
+        ?.split("=")[1];
+
       const response = await fetch(
         `https://www.stadium.science/api/venture_vox/${startupId}/create_bet`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${accessToken}`,
           },
           body: JSON.stringify({
             company_id: startupId,
@@ -111,50 +120,57 @@ const CreateBetModal = ({ startupId }: { startupId: string }) => {
             <CredenzaTitle>Create a Bet</CredenzaTitle>
           </CredenzaHeader>
           <CredenzaBody>
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)}>
-                <FormField
-                  control={form.control}
-                  name="question"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Question</FormLabel>
-                      <FormControl>
-                        <Textarea
-                          placeholder="Your question"
-                          className="resize-none"
-                          {...field}
-                          disabled={isLoading}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <div className="flex gap-3 mt-2">
-                  <Button
-                    type="submit"
-                    disabled={isLoading}
-                    className="w-2/3 bg-green-400 text-[#1e583b] font-bold"
-                  >
-                    {isLoading ? (
-                      <Loader2 className="animate-spin" />
-                    ) : (
-                      "Create Bet"
+            {isAuthenticated ? (
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)}>
+                  <FormField
+                    control={form.control}
+                    name="question"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Question</FormLabel>
+                        <FormControl>
+                          <Textarea
+                            placeholder="Your question"
+                            className="resize-none"
+                            {...field}
+                            disabled={isLoading}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
                     )}
-                  </Button>
-                  <CredenzaClose asChild>
+                  />
+                  <div className="flex gap-3 mt-2">
                     <Button
-                      type="button"
+                      type="submit"
                       disabled={isLoading}
-                      className="w-1/3 bg-muted text-black font-medium"
+                      className="w-2/3 bg-green-400 text-[#1e583b] font-bold"
                     >
-                      Cancel
+                      {isLoading ? (
+                        <Loader2 className="animate-spin" />
+                      ) : (
+                        "Create Bet"
+                      )}
                     </Button>
-                  </CredenzaClose>
-                </div>
-              </form>
-            </Form>
+                    <CredenzaClose asChild>
+                      <Button
+                        type="button"
+                        disabled={isLoading}
+                        className="w-1/3 bg-muted text-black font-medium"
+                      >
+                        Cancel
+                      </Button>
+                    </CredenzaClose>
+                  </div>
+                </form>
+              </Form>
+            ) : (
+              <div className="flex flex-col items-center justify-center gap-4">
+                <p>Please login to create a bet</p>
+                <Button>Login</Button>
+              </div>
+            )}
           </CredenzaBody>
         </CredenzaContent>
       </Credenza>
