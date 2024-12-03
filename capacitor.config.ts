@@ -17,6 +17,9 @@ const config: CapacitorConfig = {
       navigationBarColor: "#000000",
       navigationBarContent: "light",
     },
+    Cookies: {
+      enabled: true,
+    },
   },
 };
 

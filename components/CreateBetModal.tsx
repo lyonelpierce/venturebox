@@ -9,7 +9,7 @@ import {
   CredenzaHeader,
   CredenzaTitle,
 } from "@/components/ui/credenza";
-import { Button } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 import {
   Form,
   FormControl,
@@ -25,6 +25,7 @@ import { useState } from "react";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/hooks/useAuth";
+import Link from "next/link";
 
 const formSchema = z.object({
   question: z
@@ -144,7 +145,12 @@ const CreateBetModal = ({ startupId }: { startupId: string }) => {
             ) : (
               <div className="flex flex-col items-center justify-center gap-4">
                 <p>Please login to create a bet</p>
-                <Button>Login</Button>
+                <Link
+                  href="/sign-in"
+                  className={buttonVariants({ variant: "default" })}
+                >
+                  Login
+                </Link>
               </div>
             )}
           </CredenzaBody>

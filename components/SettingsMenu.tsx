@@ -12,7 +12,7 @@ import { SettingsIcon } from "lucide-react";
 import Link from "next/link";
 import { Separator } from "./ui/separator";
 import { useState } from "react";
-import { useAuth } from "@/hooks/useAuth";
+// import { useAuth } from "@/hooks/useAuth";
 
 const settingsMenuItems = [
   {
@@ -39,7 +39,7 @@ const SheetMenu = () => {
     setOpen(false);
   };
 
-  const { logout, isAuthenticated } = useAuth();
+  // const { logout, isAuthenticated } = useAuth();
 
   return (
     <>
@@ -73,7 +73,7 @@ const SheetMenu = () => {
                 <Separator />
               </div>
             ))}
-            <div>
+            {/* <div>
               {isAuthenticated ? (
                 <button
                   onClick={() => {
@@ -94,7 +94,7 @@ const SheetMenu = () => {
                 </Link>
               )}
               <Separator />
-            </div>
+            </div> */}
           </div>
         </SheetContent>
       </Sheet>

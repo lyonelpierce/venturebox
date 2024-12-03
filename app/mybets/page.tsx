@@ -1,34 +1,8 @@
-"use client";
-
 // import BetCard from "@/components/BetCard";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useSearchParams } from "next/navigation";
-import { useEffect } from "react";
-import { Preferences } from "@capacitor/preferences";
 
 const MyBetsPage = () => {
-  const searchParams = useSearchParams();
-
-  useEffect(() => {
-    const storeTokens = async () => {
-      const access_token = searchParams.get("access_token");
-      const refresh_token = searchParams.get("refresh_token");
-      const expires_in = searchParams.get("expires_in");
-
-      if (access_token && refresh_token && expires_in) {
-        await Preferences.set({ key: "access_token", value: access_token });
-        await Preferences.set({ key: "refresh_token", value: refresh_token });
-        await Preferences.set({ key: "expires_in", value: expires_in });
-
-        // Clean up URL parameters after storing
-        window.history.replaceState({}, "", "/mybets");
-      }
-    };
-
-    storeTokens();
-  }, [searchParams]);
-
   return (
     <Tabs defaultValue="active">
       <TabsList className="w-full bg-white border-b border-gray-300 h-12 p-0">

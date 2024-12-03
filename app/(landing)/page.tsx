@@ -3,7 +3,6 @@ import StartupCard from "@/components/StartupCard";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-// Fetch all startups from Product Hunt XML Feed
 const getStartups = async () => {
   try {
     const response = await fetch(
