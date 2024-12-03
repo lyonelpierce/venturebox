@@ -7,7 +7,7 @@ const Header = () => {
     <div className="flex items-center justify-center w-full h-14 border-y border-gray-300 bg-white">
       <div className="flex w-full justify-between items-center px-4">
         <SheetMenu>
-          <MenuIcon />
+          <MenuIcon className="cursor-pointer" />
         </SheetMenu>
         <Logo />
         <SettingsIcon />
