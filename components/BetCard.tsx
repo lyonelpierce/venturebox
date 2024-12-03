@@ -41,10 +41,10 @@ const BetCard = ({
       <CardContent className="flex flex-col gap-2 p-4">
         {active ? (
           <div className="flex w-full gap-2">
-            <Button className="w-1/2 h-10 rounded-xl bg-green-400 text-lg font-semibold text-[#3a9769]">
+            <Button className="w-1/2 h-10 rounded-xl bg-green-400 font-semibold text-[#3a9769]">
               Buy Yes
             </Button>
-            <Button className="w-1/2 h-10 rounded-xl bg-red-300 text-lg font-semibold text-[#d54b4f]">
+            <Button className="w-1/2 h-10 rounded-xl bg-red-300 font-semibold text-[#d54b4f]">
               Buy No
             </Button>
           </div>
