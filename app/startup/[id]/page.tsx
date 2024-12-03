@@ -6,18 +6,6 @@ import { ShareIcon, StarIcon } from "lucide-react";
 
 type Params = Promise<{ id: string }>;
 
-export async function generateStaticParams() {
-  try {
-    const startups = await fetch(
-      "https://www.stadium.science/api/venture_vox/get_all_companies"
-    ).then((res) => res.json());
-
-    return startups.map((startup: Startup) => ({ id: startup.id }));
-  } catch (error) {
-    console.log(error);
-  }
-}
-
 const getStartup = async (id: string) => {
   try {
     const response = await fetch(
@@ -31,7 +19,6 @@ const getStartup = async (id: string) => {
   }
 };
 
-// TODO
 export async function generateMetadata({ params }: { params: Params }) {
   const { id } = await params;
 

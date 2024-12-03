@@ -4,7 +4,10 @@ import "@capacitor-community/safe-area";
 const config: CapacitorConfig = {
   appId: "com.venturevox.app",
   appName: "venturebox",
-  webDir: "out",
+  server: {
+    url: "http://localhost:3000",
+    cleartext: true,
+  },
   plugins: {
     SafeArea: {
       enabled: true,
