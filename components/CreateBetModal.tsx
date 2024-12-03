@@ -59,7 +59,7 @@ const CreateBetModal = ({ startupId }: { startupId: string }) => {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       setIsLoading(true);
-      const response = await fetch("/api/bets", {
+      const response = await fetch("/api/bets/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

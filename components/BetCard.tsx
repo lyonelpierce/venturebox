@@ -17,7 +17,7 @@ const BetCard = ({
 }) => {
   return (
     <Card>
-      <CardHeader className="flex flex-row gap-2 w-full">
+      <CardHeader className="flex flex-row gap-2 w-full p-2">
         <div className="aspect-square size-20 bg-muted flex justify-center items-center">
           <CircleHelpIcon className="size-12" />
         </div>
@@ -38,7 +38,7 @@ const BetCard = ({
         </CardTitle>
       </CardHeader>
       <Separator className="bg-gray-300 h-px full" />
-      <CardContent className="flex flex-col gap-2 p-4">
+      <CardContent className="flex flex-col gap-2 p-2">
         {active ? (
           <div className="flex w-full gap-2">
             <Button className="w-1/2 h-10 rounded-xl bg-green-400 font-semibold text-[#3a9769]">
