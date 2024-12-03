@@ -59,43 +59,18 @@ const CreateBetModal = ({ startupId }: { startupId: string }) => {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       setIsLoading(true);
-      const accessToken = document.cookie
-        .split("; ")
-        .find((row) => row.startsWith("access_token="))
-        ?.split("=")[1];
+      const response = await fetch("/api/bets", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          values,
+          startupId,
+        }),
+      });
 
-      const response = await fetch(
-        `https://www.stadium.science/api/venture_vox/${startupId}/create_bet`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${accessToken}`,
-          },
-          body: JSON.stringify({
-            company_id: startupId,
-            protocol_title: values.question,
-            protocol_falsifiable_hypothesis:
-              "Company XYZ will achieve 25% revenue growth in Q4 2024",
-            protocol_daily_question:
-              "Is the company on track to meet the Q4 revenue target?",
-            protocol_steps: "helloworld",
-            protocol_start_date: new Date().toISOString(),
-            protocol_end_date: new Date(
-              Date.now() + 180 * 24 * 60 * 60 * 1000
-            ).toISOString(),
-            bet_type: "yes_no",
-            possible_answers: ["Yes", "No"],
-            answer_rules: {
-              frequency: "daily",
-              validation_criteria: "Must be supported by revenue data",
-            },
-          }),
-        }
-      );
-      const data = await response.json();
-
-      if (data) {
+      if (response.ok) {
         setOpen(false);
         router.refresh();
       }
