@@ -30,11 +30,6 @@ const settingsMenuItems = [
     href: "/add-funds",
     key: "add-funds",
   },
-  {
-    label: "Log Out",
-    href: "#",
-    key: "log-out",
-  },
 ];
 
 const SheetMenu = () => {
@@ -44,7 +39,7 @@ const SheetMenu = () => {
     setOpen(false);
   };
 
-  const { logout } = useAuth();
+  const { logout, isAuthenticated } = useAuth();
 
   return (
     <>
@@ -68,28 +63,38 @@ const SheetMenu = () => {
           <div className="flex flex-col justify-center w-full gap-3 divide-gray-300 mt-4">
             {settingsMenuItems.map((item) => (
               <div key={item.key}>
-                {item.key === "log-out" ? (
-                  <button
-                    onClick={() => {
-                      handleClose();
-                      logout();
-                    }}
-                    className="px-4 uppercase font-semibold text-[#382ff7] flex h-full text-left w-full"
-                  >
-                    {item.label}
-                  </button>
-                ) : (
-                  <Link
-                    href={item.href!}
-                    className="px-4 uppercase font-semibold text-[#382ff7] flex h-full"
-                    onClick={handleClose}
-                  >
-                    {item.label}
-                  </Link>
-                )}
+                <Link
+                  href={item.href!}
+                  className="px-4 uppercase font-semibold text-[#382ff7] flex h-full"
+                  onClick={handleClose}
+                >
+                  {item.label}
+                </Link>
                 <Separator />
               </div>
             ))}
+            <div>
+              {isAuthenticated ? (
+                <button
+                  onClick={() => {
+                    handleClose();
+                    logout();
+                  }}
+                  className="px-4 uppercase font-semibold text-[#382ff7] flex h-full text-left w-full"
+                >
+                  Log Out
+                </button>
+              ) : (
+                <Link
+                  href="/sign-in"
+                  className="px-4 uppercase font-semibold text-[#382ff7] flex h-full"
+                  onClick={handleClose}
+                >
+                  Sign In
+                </Link>
+              )}
+              <Separator />
+            </div>
           </div>
         </SheetContent>
       </Sheet>
