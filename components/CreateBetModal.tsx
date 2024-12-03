@@ -85,7 +85,8 @@ const CreateBetModal = ({ startupId }: { startupId: string }) => {
     <>
       <Button
         onClick={handleOpen}
-        className="px-5 text-xs tracking-wide font-bold uppercase bg-green-400 rounded-full text-[#3a9769]"
+        className="px-6 text-xs tracking-wide font-bold uppercase bg-green-400 rounded-xl text-[#3a9769]"
+        size="sm"
       >
         Create a Bet
       </Button>
