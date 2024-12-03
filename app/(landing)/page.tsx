@@ -29,7 +29,7 @@ const LandingPage = async () => {
 
   return (
     <Tabs defaultValue="all">
-      <TabsList className="w-full bg-white border-b border-gray-300 h-12 p-0 rounded-none">
+      <TabsList className="fixed z-20 top-0 left-0 mt-14 w-full bg-white border-b border-gray-300 h-12 p-0 rounded-none">
         <TabsTrigger value="all" className="w-1/2 font-bold uppercase h-full">
           All
         </TabsTrigger>
@@ -40,7 +40,7 @@ const LandingPage = async () => {
           Followed
         </TabsTrigger>
       </TabsList>
-      <TabsContent value="all" className="pb-20">
+      <TabsContent value="all" className="pt-8 pb-20">
         <Card className="mx-4 my-2 overflow-hidden">
           <CardContent className="flex flex-col p-0 divide-y divide-gray-300">
             {orderedStartups?.map((startup: Startup) => (

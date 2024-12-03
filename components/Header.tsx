@@ -4,8 +4,8 @@ import SheetMenu from "./SheetMenu";
 
 const Header = () => {
   return (
-    <div className="flex items-center justify-center w-full h-14 border-y border-gray-300 bg-white">
-      <div className="flex w-full justify-between items-center px-4">
+    <div className="fixed bg-white top-0 left-0flex items-center justify-center w-full h-14 border-y border-gray-300 z-20">
+      <div className="flex w-full justify-between items-center px-4 h-full">
         <SheetMenu>
           <MenuIcon className="cursor-pointer" />
         </SheetMenu>
