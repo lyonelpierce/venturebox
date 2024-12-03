@@ -107,7 +107,7 @@ const StartupsPage = async ({ params }: { params: Params }) => {
           </div>
         </div>
       </div>
-      <div className="m-4 h-full pt-28 flex flex-col gap-4">
+      <div className="m-4 h-full flex flex-col gap-4 pt-44">
         {orderedBets && orderedBets.length > 0 ? (
           orderedBets.map((bet: BetData) => (
             <BetCard active key={bet.protocol_id} betData={bet} />

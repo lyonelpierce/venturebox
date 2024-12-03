@@ -1,4 +1,4 @@
-import BetCard from "@/components/BetCard";
+// import BetCard from "@/components/BetCard";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -24,15 +24,13 @@ const MyBetsPage = () => {
       </div>
       <TabsContent value="active">
         <Card className="m-4 overflow-hidden">
-          <CardContent className="p-0">
-            <BetCard active />
-          </CardContent>
+          <CardContent className="p-0">{/* <BetCard active /> */}</CardContent>
         </Card>
       </TabsContent>
       <TabsContent value="history">
         <Card className="m-4 overflow-hidden">
           <CardContent className="p-0">
-            <BetCard active={false} />
+            {/* <BetCard active={false} /> */}
           </CardContent>
         </Card>
       </TabsContent>
