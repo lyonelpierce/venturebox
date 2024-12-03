@@ -1,10 +1,11 @@
-import { CircleHelpIcon, StarIcon } from "lucide-react";
-import { Button } from "./ui/button";
-import { Progress } from "./ui/progress";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { cn } from "@/lib/utils";
-import { Separator } from "./ui/separator";
 import { BetData } from "@/constants/startup";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
+import { Separator } from "@/components/ui/separator";
+import { CircleHelpIcon, StarIcon } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import PlaceBetButtons from "./PlaceBetButtons";
 
 const BetCard = ({
   active,
@@ -40,14 +41,7 @@ const BetCard = ({
       <Separator className="bg-gray-300 h-px full" />
       <CardContent className="flex flex-col gap-2 p-2">
         {active ? (
-          <div className="flex w-full gap-2">
-            <Button className="w-1/2 h-10 rounded-xl bg-green-400 font-semibold text-[#3a9769]">
-              Buy Yes
-            </Button>
-            <Button className="w-1/2 h-10 rounded-xl bg-red-300 font-semibold text-[#d54b4f]">
-              Buy No
-            </Button>
-          </div>
+          <PlaceBetButtons betId={betData.protocol_id} />
         ) : (
           <Button
             className={cn(

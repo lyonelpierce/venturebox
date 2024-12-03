@@ -10,15 +10,13 @@ export async function POST(req: NextRequest) {
 
   const body = await req.json();
 
-  const { startupId, values } = body;
+  const { betId, bet } = body;
 
-  if (!startupId || !values) {
-    return new NextResponse("Bad Request", { status: 400 });
-  }
+  const outcome = bet ? "Yes" : "No";
 
   try {
     const response = await fetch(
-      `https://www.stadium.science/api/venture_vox/${startupId}/create_bet`,
+      `https://www.stadium.science/api/stadium/bets/place`,
       {
         method: "POST",
         headers: {
@@ -26,23 +24,9 @@ export async function POST(req: NextRequest) {
           Authorization: `Bearer ${accessToken}`,
         },
         body: JSON.stringify({
-          company_id: startupId,
-          protocol_title: values.question,
-          protocol_falsifiable_hypothesis:
-            "Company XYZ will achieve 25% revenue growth in Q4 2024",
-          protocol_daily_question:
-            "Is the company on track to meet the Q4 revenue target?",
-          protocol_steps: "helloworld",
-          protocol_start_date: new Date().toISOString(),
-          protocol_end_date: new Date(
-            Date.now() + 180 * 24 * 60 * 60 * 1000
-          ).toISOString(),
-          bet_type: "yes_no",
-          possible_answers: ["Yes", "No"],
-          answer_rules: {
-            frequency: "daily",
-            validation_criteria: "Must be supported by revenue data",
-          },
+          protocolId: betId,
+          outcome,
+          amount: 100,
         }),
       }
     );
