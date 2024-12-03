@@ -23,6 +23,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Textarea } from "./ui/textarea";
 import { useState } from "react";
+import { Loader2 } from "lucide-react";
 
 const formSchema = z.object({
   question: z
@@ -54,7 +55,6 @@ const CreateBetModal = ({
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       setIsLoading(true);
-      console.log(values);
       const response = await fetch(
         `https://www.stadium.science/api/venture_vox/${startupId}/create_bet`,
         {
@@ -63,15 +63,17 @@ const CreateBetModal = ({
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            company_id: "47779a70-e31f-4ef6-9929-79af58c790b7",
+            company_id: startupId,
             protocol_title: values.question,
             protocol_falsifiable_hypothesis:
               "Company XYZ will achieve 25% revenue growth in Q4 2024",
             protocol_daily_question:
               "Is the company on track to meet the Q4 revenue target?",
             protocol_steps: "helloworld",
-            protocol_start_date: "2024-01-01T00:00:00Z",
-            protocol_end_date: "2024-12-31T23:59:59Z",
+            protocol_start_date: new Date().toISOString(),
+            protocol_end_date: new Date(
+              Date.now() + 180 * 24 * 60 * 60 * 1000
+            ).toISOString(),
             bet_type: "yes_no",
             possible_answers: ["Yes", "No"],
             answer_rules: {
@@ -93,7 +95,7 @@ const CreateBetModal = ({
   return (
     <Credenza>
       <CredenzaTrigger asChild>{children}</CredenzaTrigger>
-      <CredenzaContent className="pb-4">
+      <CredenzaContent className="pb-8">
         <CredenzaHeader>
           <CredenzaTitle>Create a Bet</CredenzaTitle>
         </CredenzaHeader>
@@ -122,9 +124,13 @@ const CreateBetModal = ({
                 <Button
                   type="submit"
                   disabled={isLoading}
-                  className="w-2/3 bg-green-400 font-bold text-black"
+                  className="w-2/3 bg-green-400 text-[#1e583b] font-bold"
                 >
-                  Create Bet
+                  {isLoading ? (
+                    <Loader2 className="animate-spin" />
+                  ) : (
+                    "Create Bet"
+                  )}
                 </Button>
                 <CredenzaClose asChild>
                   <Button
