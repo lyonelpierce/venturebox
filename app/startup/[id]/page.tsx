@@ -94,9 +94,9 @@ const StartupsPage = async ({ params }: { params: Params }) => {
           </div>
         </div>
       </div>
-      <div className="flex sm:bg-white sm:rounded-b-lg sm:max-w-screen-xl sm:mx-auto sm:h-min grow h-full w-full">
+      <div className="flex sm:bg-white sm:rounded-b-lg sm:max-w-screen-xl sm:mx-auto sm:h-fit grow h-full w-full">
         {orderedBets && orderedBets.length > 0 ? (
-          <div className="m-4 grid grid-cols-1 sm:grid sm:grid-cols-2 gap-2 pt-44 pb-24 w-full">
+          <div className="m-4 grid grid-cols-1 sm:grid sm:grid-cols-2 gap-2 pt-44 sm:pt-0 sm:pb-0 pb-24 w-full">
             {orderedBets.map((bet: BetData) => (
               <BetCard active key={bet.protocol_id} betData={bet} />
             ))}
