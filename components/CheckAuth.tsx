@@ -1,8 +1,8 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, FC } from "react";
 import { Preferences } from "@capacitor/preferences";
 
-const CheckAuth = () => {
+const CheckAuth: FC = () => {
   useEffect(() => {
     const checkAndStoreTokens = async () => {
       // Get URL parameters
@@ -40,7 +40,7 @@ const CheckAuth = () => {
     checkAndStoreTokens();
   }, []);
 
-  return <div>CheckAuth</div>;
+  return null;
 };
 
 export default CheckAuth;
