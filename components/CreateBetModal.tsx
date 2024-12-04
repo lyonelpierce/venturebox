@@ -9,7 +9,7 @@ import {
   CredenzaHeader,
   CredenzaTitle,
 } from "@/components/ui/credenza";
-import { Button, buttonVariants } from "./ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -58,6 +58,8 @@ const CreateBetModal = ({ startupId }: { startupId: string }) => {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    const token = localStorage.getItem("CapacitorStorage.access_token");
+
     try {
       setIsLoading(true);
       const response = await fetch("/api/bets/create", {
@@ -68,6 +70,7 @@ const CreateBetModal = ({ startupId }: { startupId: string }) => {
         body: JSON.stringify({
           values,
           startupId,
+          token,
         }),
       });
 

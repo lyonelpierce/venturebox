@@ -10,7 +10,11 @@ const DesktopMenu = () => {
     <div className="flex gap-6 font-museo font-bold text-2xl uppercase">
       <Link
         href="/"
-        className={pathname === "/" ? "text-[#2600ff]" : "text-gray-800"}
+        className={
+          pathname === "/" || pathname.includes("startup")
+            ? "text-[#2600ff]"
+            : "text-gray-800"
+        }
       >
         Start ups
       </Link>
