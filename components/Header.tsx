@@ -14,12 +14,14 @@ const Header = () => {
         <SettingsMenu />
       </div>
       <div className="hidden sm:flex w-full justify-between items-center px-4 h-full">
-        <Link href="/">
+        <Link href="/" className="w-1/3 flex justify-start">
           <h2 className="capitalized text-2xl font-bold uppercase font-museo text-gray-800">
             Venture Vox
           </h2>
         </Link>
-        <DesktopMenu />
+        <div className="w-1/3 flex justify-center">
+          <DesktopMenu />
+        </div>
         {/* <div className="w-64 relative">
           <Input
             placeholder="Search"
@@ -27,7 +29,9 @@ const Header = () => {
           />
           <SearchIcon className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-[#2600ff] cursor-pointer" />
         </div> */}
-        <UserButton />
+        <div className="w-1/3 flex justify-end">
+          <UserButton />
+        </div>
       </div>
     </header>
   );
