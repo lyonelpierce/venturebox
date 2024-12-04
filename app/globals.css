@@ -76,12 +76,4 @@
   body {
     @apply bg-background text-foreground;
   }
-
-  .header {
-    padding-top: var(--safe-area-inset-top);
-  }
-
-  .top-nav {
-    margin-top: calc(var(--safe-area-inset-top) + 3.5 rem);
-  }
 }

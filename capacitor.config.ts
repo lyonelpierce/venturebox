@@ -12,14 +12,14 @@ const config: CapacitorConfig = {
     SafeArea: {
       enabled: true,
       customColorsForSystemBars: true,
-      statusBarColor: "#000000",
+      statusBarColor: "#ffffff",
       statusBarContent: "light",
-      navigationBarColor: "#000000",
+      navigationBarColor: "#ffffff",
       navigationBarContent: "light",
     },
   },
   ios: {
-    contentInset: "always",
+    contentInset: "automatic",
   },
 };
 
