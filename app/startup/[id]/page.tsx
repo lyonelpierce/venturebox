@@ -74,7 +74,7 @@ const StartupsPage = async ({ params }: { params: Params }) => {
 
   return (
     <>
-      <div className="fixed sm:relative sm:max-w-screen-xl sm:mx-auto sm:mt-20 sm:z-10 sm:rounded-t-lg z-20 top-0 left-0 mt-14 bg-white border-b border-gray-300 h-32 flex items-center p-8 w-full">
+      <div className="fixed sm:relative sm:max-w-screen-xl sm:mx-auto sm:mt-0 sm:z-10 sm:rounded-t-lg z-20 top-0 left-0 mt-14 bg-white border-b border-gray-300 h-32 flex items-center p-8 w-full">
         <div className="flex gap-3 w-full">
           <StartupAvatar imageUrl={startup.company_image} />
           <div className="flex flex-col justify-between w-full">
@@ -96,7 +96,7 @@ const StartupsPage = async ({ params }: { params: Params }) => {
       </div>
       <div className="flex sm:bg-white sm:rounded-b-lg sm:max-w-screen-xl sm:mx-auto sm:h-fit grow h-full w-full">
         {orderedBets && orderedBets.length > 0 ? (
-          <div className="m-4 grid grid-cols-1 sm:grid sm:grid-cols-2 gap-2 pt-44 sm:pt-0 sm:pb-0 pb-24 w-full">
+          <div className="m-4 grid grid-cols-1 sm:grid sm:grid-cols-2 gap-2 pt-24 sm:pt-0 w-full">
             {orderedBets.map((bet: BetData) => (
               <BetCard active key={bet.protocol_id} betData={bet} />
             ))}
