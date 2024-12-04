@@ -1,6 +1,8 @@
 PODS:
   - Capacitor (6.2.0):
     - CapacitorCordova
+  - CapacitorCommunityHttp (1.4.1):
+    - Capacitor
   - CapacitorCommunitySafeArea (6.0.0-alpha.8):
     - Capacitor
   - CapacitorCordova (6.2.0)
@@ -9,6 +11,7 @@ PODS:
 
 DEPENDENCIES:
   - "Capacitor (from `../../node_modules/@capacitor/ios`)"
+  - "CapacitorCommunityHttp (from `../../node_modules/@capacitor-community/http`)"
   - "CapacitorCommunitySafeArea (from `../../node_modules/@capacitor-community/safe-area`)"
   - "CapacitorCordova (from `../../node_modules/@capacitor/ios`)"
   - "CapacitorPreferences (from `../../node_modules/@capacitor/preferences`)"
@@ -16,6 +19,8 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   Capacitor:
     :path: "../../node_modules/@capacitor/ios"
+  CapacitorCommunityHttp:
+    :path: "../../node_modules/@capacitor-community/http"
   CapacitorCommunitySafeArea:
     :path: "../../node_modules/@capacitor-community/safe-area"
   CapacitorCordova:
@@ -25,10 +30,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Capacitor: 1f3c7b9802d958cd8c4eb63895fff85dff2e1eea
+  CapacitorCommunityHttp: 7be90668527ef14ee10d08135b0e00fac9cf8247
   CapacitorCommunitySafeArea: bf6bf8f4652ef69a80a53a1b7aaedd3da991ab9d
   CapacitorCordova: b33e7f4aa4ed105dd43283acdd940964374a87d9
   CapacitorPreferences: 9f9935bce493977183511362131a93f7b260191a
 
-PODFILE CHECKSUM: 2289884172cb963864dd0542fe6bcdf62b5b69b2
+PODFILE CHECKSUM: 27a2ced41692f00db2c3531132761269fd100346
 
 COCOAPODS: 1.16.2

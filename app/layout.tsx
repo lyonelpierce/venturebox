@@ -4,6 +4,7 @@ import "./globals.css";
 
 import Header from "@/components/Header";
 import Navbar from "@/components/Navbar";
+import "@capacitor-community/safe-area";
 import { initialize } from "@capacitor-community/safe-area";
 
 const geistSans = localFont({
@@ -34,7 +35,9 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <meta name="viewport" content="viewport-fit=cover" />
+      <head>
+        <meta name="viewport" content="viewport-fit=cover" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased w-full bg-[#fff4ec] h-dvh relative`}
       >

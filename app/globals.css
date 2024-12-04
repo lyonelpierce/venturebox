@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -33,7 +29,10 @@ body {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    --safe-area-inset-top: max(env(safe-area-inset-top), 0px);
+    --safe-area-inset-bottom: max(env(safe-area-inset-bottom), 0px);
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -76,5 +75,13 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  .header {
+    padding-top: var(--safe-area-inset-top);
+  }
+
+  .top-nav {
+    margin-top: calc(var(--safe-area-inset-top) + 3.5 rem);
   }
 }

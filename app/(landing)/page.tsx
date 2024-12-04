@@ -28,7 +28,7 @@ const LandingPage = async () => {
 
   return (
     <Tabs defaultValue="all">
-      <TabsList className="fixed z-20 top-0 left-0 mt-14 w-full bg-white border-b border-gray-300 h-12 p-0 rounded-none">
+      <TabsList className="top-nav p-0 fixed z-20 top-0 left-0 w-full bg-white border-b border-gray-300 h-12 px-0 rounded-none">
         <TabsTrigger value="all" className="w-1/2 font-bold uppercase h-full">
           All
         </TabsTrigger>

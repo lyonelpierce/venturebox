@@ -7,12 +7,11 @@ import {
   SheetDescription,
   SheetHeader,
   SheetTitle,
-} from "./ui/sheet";
+} from "@/components/ui/sheet";
 import { SettingsIcon } from "lucide-react";
 import Link from "next/link";
-import { Separator } from "./ui/separator";
+import { Separator } from "@/components/ui/separator";
 import { useState } from "react";
-// import { useAuth } from "@/hooks/useAuth";
 
 const settingsMenuItems = [
   {

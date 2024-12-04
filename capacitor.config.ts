@@ -1,5 +1,5 @@
-import type { CapacitorConfig } from "@capacitor/cli";
 import "@capacitor-community/safe-area";
+import type { CapacitorConfig } from "@capacitor/cli";
 
 const config: CapacitorConfig = {
   appId: "com.venturevox.app",
@@ -17,9 +17,9 @@ const config: CapacitorConfig = {
       navigationBarColor: "#000000",
       navigationBarContent: "light",
     },
-    Cookies: {
-      enabled: true,
-    },
+  },
+  ios: {
+    contentInset: "always",
   },
 };
 
