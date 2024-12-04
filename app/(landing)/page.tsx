@@ -34,7 +34,7 @@ const LandingPage = async () => {
         defaultValue="all"
         className="max-w-screen-xl mx-auto sm:bg-white sm:border sm:border-gray-300 sm:rounded-lg sm:overflow-hidden sm:mt-12"
       >
-        <TabsList className="p-0 fixed sm:relative mt-14 sm:mt-0 z-20 top-0 left-0 w-full bg-white border-b border-gray-300 h-12 px-0 rounded-none sm:rounded-none">
+        <TabsList className="p-0 fixed sm:relative mt-14 sm:mt-0 z-20 sm:z-10 top-0 left-0 w-full bg-white border-b border-gray-300 h-12 px-0 rounded-none sm:rounded-none">
           <TabsTrigger value="all" className="w-1/2 font-bold uppercase h-full">
             All
           </TabsTrigger>
