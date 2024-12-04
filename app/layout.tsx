@@ -20,7 +20,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: "Venture Vox",
+    default: "Venture Vox - Prediction Market for Startups",
     template: "%s | Venture Vox",
   },
   description: "Prediction market for startups",
