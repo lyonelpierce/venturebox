@@ -19,8 +19,8 @@ const DesktopMenu = () => {
         Start ups
       </Link>
       <Link
-        href="/my-bets"
-        className={pathname === "/my-bets" ? "text-[#2600ff]" : "text-gray-800"}
+        href="/mybets"
+        className={pathname === "/mybets" ? "text-[#2600ff]" : "text-gray-800"}
       >
         My Bets
       </Link>
