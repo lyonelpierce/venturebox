@@ -1,9 +1,9 @@
 import Logo from "./logo";
-import { MenuIcon, SearchIcon } from "lucide-react";
+import { MenuIcon } from "lucide-react";
 import SettingsMenu from "./SettingsMenu";
 import Link from "next/link";
-import { Input } from "@/components/ui/input";
 import DesktopMenu from "./DesktopMenu";
+import UserButton from "./UserButton";
 
 const Header = () => {
   return (
@@ -20,13 +20,14 @@ const Header = () => {
           </h2>
         </Link>
         <DesktopMenu />
-        <div className="w-64 relative">
+        {/* <div className="w-64 relative">
           <Input
             placeholder="Search"
             className="w-full rounded-full border-gray-300 bg-gray-50"
           />
           <SearchIcon className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-[#2600ff] cursor-pointer" />
-        </div>
+        </div> */}
+        <UserButton />
       </div>
     </header>
   );
