@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { App } from "@capacitor/app";
+import { Browser } from "@capacitor/browser";
 
 export default function LoginWithSVN() {
   const clientId = process.env.NEXT_PUBLIC_SVN_CLIENT_ID!;
@@ -14,12 +16,21 @@ export default function LoginWithSVN() {
     return;
   }
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     const state = Math.random().toString(36).substring(7);
-
-    window.location.href = `https://www.svn.haus/api/auth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(
+    const url = `https://www.svn.haus/api/auth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(
       redirectUri
     )}&state=${state}`;
+
+    // Use Capacitor Browser instead of window.location
+    await Browser.open({ url });
+
+    // Listen for app open events (deep links)
+    App.addListener("appUrlOpen", async ({ url }) => {
+      console.log("App opened with URL:", url);
+      await Browser.close();
+      // Handle the callback URL here
+    });
   };
 
   return (

@@ -21,7 +21,7 @@ const menu = [
 
 const Navbar = () => {
   return (
-    <div className="bg-white w-full fixed bottom-0 left-0 border-t border-gray-300 flex justify-evenly h-20 items-center z-20">
+    <div className="hidden sm:flexbg-white w-full fixed bottom-0 left-0 border-t border-gray-300 justify-evenly h-20 items-center z-20">
       {menu.map((item) => (
         <Link
           key={item.href}
