@@ -54,6 +54,15 @@ const LandingPage = async () => {
             </CardContent>
           </Card>
         </TabsContent>
+        <TabsContent value="followed" className="py-20 sm:py-0 sm:pb-12">
+          <Card className="sm:mx-0 mx-4 my-2 overflow-hidden sm:border-0 sm:shadow-none">
+            <CardContent className="flex flex-col p-0 divide-y divide-gray-300">
+              <div className="text-center text-lg mt-10">
+                You haven&apos;t followed any startups yet.
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
       </Tabs>
     </>
   );
