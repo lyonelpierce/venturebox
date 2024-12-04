@@ -17,6 +17,8 @@ const PlaceBetButtons = ({ betId }: { betId: string }) => {
       router.push("/sign-in");
     }
 
+    const token = localStorage.getItem("CapacitorStorage.access_token");
+
     try {
       setIsLoading(true);
       const response = await fetch("/api/bets/place", {
@@ -27,6 +29,7 @@ const PlaceBetButtons = ({ betId }: { betId: string }) => {
         body: JSON.stringify({
           bet,
           betId,
+          token,
         }),
       });
 

@@ -1,16 +1,13 @@
-import { getAuthCookies } from "@/lib/cookies";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
-  const { accessToken } = await getAuthCookies();
-
-  if (!accessToken) {
-    return new NextResponse("Unauthorized", { status: 401 });
-  }
-
   const body = await req.json();
 
-  const { betId, bet } = body;
+  const { betId, bet, token } = body;
+
+  if (!betId || !bet || !token) {
+    return new NextResponse("Bad Request", { status: 400 });
+  }
 
   const outcome = bet ? "Yes" : "No";
 
@@ -21,7 +18,7 @@ export async function POST(req: NextRequest) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${accessToken}`,
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
           protocolId: betId,

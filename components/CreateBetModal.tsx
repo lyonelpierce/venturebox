@@ -39,8 +39,8 @@ const formSchema = z.object({
 });
 
 const CreateBetModal = ({ startupId }: { startupId: string }) => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const { isAuthenticated } = useAuth();
 
