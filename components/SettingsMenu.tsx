@@ -11,7 +11,8 @@ import {
 import { SettingsIcon } from "lucide-react";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
 
 const settingsMenuItems = [
   {
@@ -34,21 +35,23 @@ const settingsMenuItems = [
 const SheetMenu = () => {
   const [open, setOpen] = useState<boolean>(false);
 
+  const [isAndroid, setIsAndroid] = useState<boolean>(false);
+
+  useEffect(() => {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    setIsAndroid(/android/i.test(userAgent));
+  }, []);
+
   const handleClose = () => {
     setOpen(false);
   };
-
-  // const { logout, isAuthenticated } = useAuth();
 
   return (
     <>
       <SettingsIcon className="cursor-pointer" onClick={() => setOpen(true)} />
       <Sheet open={open} onOpenChange={handleClose}>
-        <SheetContent
-          side={"right"}
-          className="p-4 px-0 border-gray-300 focus:ring-0"
-        >
-          <SheetHeader>
+        <SheetContent side={"right"} className="p-4 px-0 border-gray-300">
+          <SheetHeader className={cn(isAndroid && "pt-4")}>
             <SheetTitle className="flex px-4 justify-start text-lg font-medium uppercase text-gray-400">
               Settings
             </SheetTitle>

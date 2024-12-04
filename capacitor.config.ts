@@ -5,8 +5,8 @@ const config: CapacitorConfig = {
   appId: "com.venturevox.app",
   appName: "venturebox",
   server: {
-    url: "http://localhost:3000",
-    cleartext: true,
+    url: "https://1720-162-83-251-221.ngrok-free.app",
+    // cleartext: true,
   },
   plugins: {
     SafeArea: {

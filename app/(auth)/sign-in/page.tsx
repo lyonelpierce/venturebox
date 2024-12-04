@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { App } from "@capacitor/app";
 import { Browser } from "@capacitor/browser";
+import { Button } from "@/components/ui/button";
 
 export default function LoginWithSVN() {
   const clientId = process.env.NEXT_PUBLIC_SVN_CLIENT_ID!;
@@ -35,13 +36,9 @@ export default function LoginWithSVN() {
 
   return (
     <div className="max-w-md mx-auto p-4 pt-20">
-      <h1 className="text-2xl font-bold mb-4">Login with SVN</h1>
-      <button
-        onClick={handleLogin}
-        className="w-full p-2 bg-blue-500 text-white rounded"
-      >
+      <Button onClick={handleLogin} className="w-full p-2 text-white rounded">
         Login
-      </button>
+      </Button>
       {error && <p className="text-red-500 mt-2">{error}</p>}
     </div>
   );

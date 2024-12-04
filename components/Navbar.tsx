@@ -1,6 +1,7 @@
 import { HomeIcon, SearchIcon, User2Icon } from "lucide-react";
 import Link from "next/link";
-
+import { headers } from "next/headers";
+import { cn } from "@/lib/utils";
 const menu = [
   {
     label: "Home",
@@ -19,9 +20,18 @@ const menu = [
   },
 ];
 
-const Navbar = () => {
+const Navbar = async () => {
+  const headersList = await headers();
+  const userAgent = headersList.get("user-agent") || "";
+  const isAndroid = /android/i.test(userAgent);
+
   return (
-    <div className="flex sm:hidden bg-white w-full fixed bottom-0 left-0 border-t border-gray-300 justify-evenly h-20 items-center z-20">
+    <div
+      className={cn(
+        "flex sm:hidden bg-white w-full fixed bottom-0 left-0 border-t border-gray-300 justify-evenly h-20 items-center z-20",
+        isAndroid && "mb-2"
+      )}
+    >
       {menu.map((item) => (
         <Link
           key={item.href}
