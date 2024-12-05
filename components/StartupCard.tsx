@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Startup } from "@/constants/startup";
+import { Startup } from "../constants/startup";
 import { ShareIcon, StarIcon } from "lucide-react";
 import StartupAvatar from "./StartupAvatar";
 

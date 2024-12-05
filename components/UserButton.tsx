@@ -1,6 +1,6 @@
 "use client";
 
-import { useAuth } from "@/hooks/useAuth";
+import { useAuth } from "../hooks/useAuth";
 import { buttonVariants } from "./ui/button";
 import Link from "next/link";
 import SheetMenu from "./SettingsMenu";
