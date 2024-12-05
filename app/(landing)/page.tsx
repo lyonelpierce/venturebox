@@ -1,4 +1,4 @@
-import { Startup } from "@/constants/startup";
+import { Startup } from "../../constants/startup";
 import StartupCard from "../../components/StartupCard";
 import { Card, CardContent } from "../../components/ui/card";
 import {
@@ -7,7 +7,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "../../components/ui/tabs";
-import CheckAuth from "@/components/CheckAuth";
+import CheckAuth from "../../components/CheckAuth";
 
 const getStartups = async () => {
   try {
