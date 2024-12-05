@@ -29,8 +29,6 @@ export async function GET(request: NextRequest) {
 
   const { access_token, refresh_token, expires_in } = tokenData;
 
-  console.log(tokenData);
-
   if (!access_token || !refresh_token) {
     return NextResponse.json(
       { error: "Invalid token response" },
@@ -40,7 +38,7 @@ export async function GET(request: NextRequest) {
 
   // Redirect to home page or success page
   const redirectTo = request.nextUrl.clone();
-  redirectTo.pathname = "/";
+  redirectTo.pathname = "/sign-in/success";
   redirectTo.searchParams.set("access_token", access_token);
   redirectTo.searchParams.set("refresh_token", refresh_token);
   redirectTo.searchParams.set("expires_in", expires_in.toString());
