@@ -1,7 +1,7 @@
 import { HomeIcon, SearchIcon, User2Icon } from "lucide-react";
 import Link from "next/link";
 import { headers } from "next/headers";
-import { cn } from "@/lib/utils";
+import { cn } from "../lib/utils";
 const menu = [
   {
     label: "Home",
