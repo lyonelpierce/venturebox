@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-import Header from "@/components/Header";
-import Navbar from "@/components/Navbar";
+import Header from "../components/Header";
+import Navbar from "../components/Navbar";
 import "@capacitor-community/safe-area";
 import { initialize } from "@capacitor-community/safe-area";
 
