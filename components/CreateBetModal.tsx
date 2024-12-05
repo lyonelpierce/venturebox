@@ -24,7 +24,7 @@ import { Textarea } from "../components/ui/textarea";
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useAuth } from "@/hooks/useAuth";
+import { useAuth } from "../hooks/useAuth";
 import Link from "next/link";
 
 const formSchema = z.object({

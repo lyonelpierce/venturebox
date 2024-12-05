@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "./ui/button";
-import { useAuth } from "@/hooks/useAuth";
+import { useAuth } from "../hooks/useAuth";
 import { useRouter } from "next/navigation";
 import { ThumbsDownIcon, ThumbsUpIcon } from "lucide-react";
 

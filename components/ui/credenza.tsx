@@ -3,7 +3,7 @@
 import * as React from "react";
 
 import { cn } from "../../lib/utils";
-import { useMediaQuery } from "@/hooks/use-media-query";
+import { useMediaQuery } from "../../hooks/use-media-query";
 import {
   Dialog,
   DialogClose,
@@ -13,7 +13,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
+} from "../../components/ui/dialog";
 import {
   Drawer,
   DrawerClose,
@@ -23,7 +23,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/components/ui/drawer";
+} from "../../components/ui/drawer";
 
 interface BaseProps {
   children: React.ReactNode;
