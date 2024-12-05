@@ -42,11 +42,13 @@ export default async function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased w-full bg-[#fff4ec] min-h-screen py-20`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#fff4ec]`}
       >
-        <Header />
-        {children}
-        <Navbar />
+        <div className="min-h-screen w-full py-20">
+          <Header />
+          {children}
+          <Navbar />
+        </div>
       </body>
     </html>
   );

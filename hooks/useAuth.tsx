@@ -29,11 +29,29 @@ export function useAuth() {
 
   const logout = async () => {
     try {
+      const token = localStorage.getItem("CapacitorStorage.access_token");
+
       await Preferences.remove({ key: "access_token" });
       await Preferences.remove({ key: "refresh_token" });
       await Preferences.remove({ key: "expires_in" });
       setIsAuthenticated(false);
-      router.push("/");
+
+      const response = await fetch(
+        "https://www.stadium.science/api/oath/logout",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            access_token: token,
+          }),
+        }
+      );
+
+      if (response.ok) {
+        router.push("/");
+      }
     } catch (error) {
       console.error("Error during logout:", error);
     }

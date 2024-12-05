@@ -13,6 +13,8 @@ import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/hooks/useAuth";
+import { Button } from "./ui/button";
 
 const settingsMenuItems = [
   {
@@ -36,6 +38,8 @@ const SheetMenu = () => {
   const [open, setOpen] = useState<boolean>(false);
 
   const [isAndroid, setIsAndroid] = useState<boolean>(false);
+
+  const { logout } = useAuth();
 
   useEffect(() => {
     const userAgent = window.navigator.userAgent.toLowerCase();
@@ -98,6 +102,7 @@ const SheetMenu = () => {
               <Separator />
             </div> */}
           </div>
+          <Button onClick={logout}>Logout</Button>
         </SheetContent>
       </Sheet>
     </>
