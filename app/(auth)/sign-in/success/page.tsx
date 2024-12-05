@@ -2,7 +2,7 @@
 
 const LoginSuccessPage = () => {
   return (
-    <div>
+    <div className="flex flex-col items-center justify-center h-screen">
       <p>Authentication successful</p>
     </div>
   );
