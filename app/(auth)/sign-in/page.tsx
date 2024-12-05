@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Browser } from "@capacitor/browser";
-import { Button } from "@/components/ui/button";
+import { Button } from "../../../components/ui/button";
 import { useRouter } from "next/navigation";
 
 export default function LoginWithSVN() {

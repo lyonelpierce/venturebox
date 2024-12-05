@@ -1,7 +1,12 @@
 import { Startup } from "@/constants/startup";
-import StartupCard from "@/components/StartupCard";
-import { Card, CardContent } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import StartupCard from "../../components/StartupCard";
+import { Card, CardContent } from "../../components/ui/card";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "../../components/ui/tabs";
 import CheckAuth from "@/components/CheckAuth";
 
 const getStartups = async () => {
