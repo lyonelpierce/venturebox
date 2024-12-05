@@ -1,7 +1,7 @@
-import BetCard from "@/components/BetCard";
-import CreateBetModal from "@/components/CreateBetModal";
-import StartupAvatar from "@/components/StartupAvatar";
-import { Bet, BetData } from "@/constants/startup";
+import BetCard from "../../../components/BetCard";
+import CreateBetModal from "../../../components/CreateBetModal";
+import StartupAvatar from "../../../components/StartupAvatar";
+import { Bet, BetData } from "../../../constants/startup";
 import { ShareIcon, StarIcon } from "lucide-react";
 
 type Params = Promise<{ id: string }>;
