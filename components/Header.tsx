@@ -5,7 +5,7 @@ import Link from "next/link";
 import DesktopMenu from "./DesktopMenu";
 import UserButton from "./UserButton";
 import { headers } from "next/headers";
-import { cn } from "@/lib/utils";
+import { cn } from "../lib/utils";
 
 const Header = async () => {
   const headersList = await headers();
